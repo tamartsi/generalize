@@ -1,0 +1,9 @@
+Package: generalize
+Type: Package
+Title: Test generalization of association analysis from study1 to study2 and display results
+Version: 1.0
+Date: 2015-12-15
+Author: Tamar Sofer
+Maintainer: Who to complain to <tsofer@uw.edu>
+Description: Given multiple SNP-trait testing results from two studies, when one is considered the discovery study (study1) and the other (study2) is the follow-up, calculate r-values to quantify the strength of association between each of the SNPs and the trait. If effect sizes are available results can be displayed in a figure. 
+License: GPL-2
