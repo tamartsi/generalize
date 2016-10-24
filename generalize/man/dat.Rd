@@ -5,7 +5,8 @@
 A data set of previouly published SNP-platelet count associations in Gieger et al., 2011, and association results for the same SNPs in the HCHS/SOL. 
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of the dataset. ~~
+A data set with SNP associations reported for platelet counts, in study1 being Geiger et al., 2011, 
+study2 the HCHS/SOL. 
 }
 \usage{data("dat")}
 \format{
@@ -35,9 +36,7 @@ These results will soon be published in the American Journal of Human Genetics (
 }
 \source{
 Gieger, Christian, et al. "New gene functions in megakaryopoiesis and platelet formation." Nature 480.7376 (2011): 201-208,
-}
-\references{
-%%  ~~ possibly secondary sources and usages ~~
+Schick, Ursula M., et al. "Genome-wide association study of platelet count identifies ancestry-specific loci in Hispanic/Latino Americans." The American Journal of Human Genetics 98.2 (2016): 229-242.
 }
 \examples{
 data(dat)

@@ -1,6 +1,6 @@
 \name{testGeneralization}
 \alias{testGeneralization}
-%- Also NEED an '\alias' for EACH other topic documented here.
+Calculate generalization/replication r-values.
 \title{
 Test for generalization of associations from study1 to study2 
 }
@@ -11,7 +11,10 @@ Test for generalization of associations from study1 to study2
   and used.only and associations with the same sign in the two studies are generalized. 
 }
 \usage{
-testGeneralization(snpID, study1.pval, study2.pval, study1.n.test, study1.direction = NULL,  study2.direction = NULL, directional.control = TRUE, control.measure = "FDR", q = 0.05, l00 = 0.8, c2 = 0.5, variation = c("none","use.m.star","use.t"), tt = NULL,  verbose = FALSE)
+testGeneralization(snpID, study1.pval, study2.pval, study1.n.test, 
+	study1.effect = NULL,  study2.effect = NULL, directional.control = TRUE, 
+	control.measure = "FDR", q = 0.05, l00 = 0.8, c2 = 0.5, 
+	variation = c("none","use.m.star","use.t"), tt = NULL,  verbose = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -28,15 +31,14 @@ testGeneralization(snpID, study1.pval, study2.pval, study1.n.test, study1.direct
   \item{study1.n.test}{
  Number of SNPs tested in study 1.
 }
-  \item{study1.direction}{
-   An optional numeric vector of the directions of effects of the SNPs from study1. These could also be the effect estimates themselves, 
-  i.e. any numeric vector with signes matching the signes of the effects in study1. 
+  \item{study1.effect}{
+   An optional numeric vector of SNP effects from study1, or their directions as 1, -1.\\
 	Required for directional control using 1-sided p-values. 
 }
-  \item{study2.direction}{
-   An optional numeric vector of the directions of effects of the SNPs from study2. These could also be the effect estimates themselves, 
-  i.e. any numeric vector with signes matching the signes of the effects in study2.
+  \item{study2.effect}{
+   An optional numeric vector of SNP effects from study2, or their directions as 1, -1.\\
 	Required for directional control using 1-sided p-values. 
+
 }
   \item{directional.control}{
   should directional controlled by applied? i.e., a SNP could be generalized only if it has 
@@ -50,7 +52,7 @@ testGeneralization(snpID, study1.pval, study2.pval, study1.n.test, study1.direct
 }
   \item{l00}{
  Lower bound of the fraction of features (out of m) with true null hypotheses in both studies.
-    For example, for GWAS on the whole genome, the choice of 0.8 is conservative
+    For example, for GWAS on the whole genome, the choice of 0.8 is conservativeeffect
     in typical applications.
 }
   \item{c2}{
@@ -78,40 +80,28 @@ testGeneralization(snpID, study1.pval, study2.pval, study1.n.test, study1.direct
 Returns a data frame matching each snpID with its computed r-value and generalization status.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
+a data frame matching each snpID with its computed r-value and generalization status.
 }
 \author{
 Tamar Sofer
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
 data(dat)
 head(dat)
 ## first match effects on alleles:
 
-dat.matched <- matchEffectAllele(dat$rsID, study1.direction = dat$study1.beta, study2.direction = dat$study2.beta, study1.alleleA = dat$study1.alleleA, study2.alleleA = dat$study2.alleleA, study1.alleleB = dat$study1.alleleB, study2.alleleB = dat$study2.alleleB)
+dat.matched <- matchEffectAllele(dat$rsID,  study2.effect = dat$study2.beta, 
+	study1.alleleA = dat$study1.alleleA, study2.alleleA = dat$study2.alleleA, 
+	study1.alleleB = dat$study1.alleleB, study2.alleleB = dat$study2.alleleB)
 
 
 head(dat.matched)
 
-dat$study2.beta <- dat.matched$study2.direction
+dat$study2.beta <- dat.matched$study2.effect
 
 ## test for generalization:
 
-gen.res <- testGeneralization(dat$rsID, dat$study1.pval, dat$study2.pval, dat$study1.n.test[1], study1.direction = dat$study1.beta, study2.direction = dat$study2.beta, directional.control = TRUE, control.measure = "FDR" )
+gen.res <- testGeneralization(dat$rsID, dat$study1.pval, dat$study2.pval, dat$study1.n.test[1], 
+	study1.effect = dat$study1.beta, study2.effect = dat$study2.beta, 
+	directional.control = TRUE, control.measure = "FDR" )
 }

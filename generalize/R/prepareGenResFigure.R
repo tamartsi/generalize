@@ -1,9 +1,8 @@
 prepareGenResFigure <-
-function(snpID, study1.beta, study1.se, study2.beta, study2.se,generalized, gen.rvals, study1.n.test, output.file, study1.name = "Study1", study2.name = "Study2", make.title = FALSE, legend.position = c(.9, .9), CI.line.width = 1.7, x.ticks.size = 15, plot.width = 8, plot.height = 8, trait = NULL, plot.title = NULL, add.stars = NULL, alpha.level.follow = NULL){
+function(snpID, study1.beta, study1.se, study2.beta, study2.se,generalized, gen.rvals, study1.n.test, output.file, study1.name = "Study1", study2.name = "Study2", make.title = FALSE, legend.position = c(.9, .9), CI.line.width = 1.7, x.ticks.size = 15, plot.width = 8, plot.height = 8, trait = NULL, plot.title = NULL, add.stars = NULL, alpha.level.follow = 0.05){
 	
 	stopifnot(length(snpID) == length(study1.beta), length(study1.beta) == length(study1.se), length(study1.beta) == length(study2.beta), length(snpID) == length(study2.se))
 	
-	if (is.null(alpha.level.follow)) alpha.level.follow <- 0.05
 	
 	alpha.level.dscvr <- 0.05*length(snpID)/study1.n.test
 	
