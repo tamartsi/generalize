@@ -11,7 +11,7 @@ The function computes r-values given two vectors of p-values from primary and
   This is a function from Ruth Heller, adapted to compute FWER r-values in addition to FDR r-values. 
 }
 \usage{
-r.value(p1, p2, m, c2 = 0.5, control.measure = "FDR", l00 = 0.8 )
+r.value(p1, p2, m, c2 = 0.5, control.measure = "FDR", l00 = 0.8 , variation = c("none","use.m.star","use.t"), tt = NULL, Q= 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

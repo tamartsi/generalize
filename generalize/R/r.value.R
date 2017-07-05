@@ -1,5 +1,5 @@
 r.value <-
-function (p1, p2, m, c2 = 0.5, control.measure = "FDR", l00= 0, variation = c("none","use.m.star","use.t"), tt = NULL, Q = 0.05)
+function (p1, p2, m, c2 = 0.5, control.measure = "FDR", l00= 0.8, variation = c("none","use.m.star","use.t"), tt = NULL, Q = 0.05)
 {
   variation <- match.arg(variation)
   
