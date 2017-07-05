@@ -30,6 +30,9 @@ dat.matched <- matchEffectAllele(dat$rsID,  study2.effect = dat$study2.beta,
 
 
 dat$study2.beta <- dat.matched$study2.effect
+dat$alleleA <- dat$study1.alleleA
+dat$alleleB <- dat$study1.alleleB
+dat$study1.alleleA <- dat$study1.alleleB <- dat$study2.alleleA <- dat$study2.alleleB <- NULL
 
 ## test for generalization:
 

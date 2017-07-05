@@ -110,7 +110,7 @@ function(snpID, study2.effect, study1.alleleA, study2.alleleA, study1.alleleB = 
 	}
 	
 	
-	if (is.null(strand.ambiguous)) return( data.frame(snpID, study2.effect, study1.alleleA)) else{
-		return( data.frame(snpID, study2.effect, study1.alleleA, strand.ambiguous))
+	if (is.null(strand.ambiguous)) return( data.frame(snpID, study2.effect, study1.alleleA, flip)) else{
+		return( data.frame(snpID, study2.effect, study1.alleleA, flip, strand.ambiguous))
 	}
 }

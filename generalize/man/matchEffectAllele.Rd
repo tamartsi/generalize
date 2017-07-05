@@ -40,6 +40,10 @@ matchEffectAllele(snpID, study2.effect, study1.alleleA, study2.alleleA,
 \value{
 Returns a data frame with SNP identifiers, direction of effects of study2 after possibly flipping 
 the directions of effects of study2 so the same effect allele is used in both studyes. 
+The returned data frame also has an indicator of whether the direction of association was flipped
+based on allele matched. If it was, and you would like to provide the correct effect allele 
+frequencies associated with the follow-up study effect sizes, make sure to change them 
+(by eaf[which(flip)] <- 1-eaf[which(flip)]) for the flipped effect sizes.
 If effect estimates were given in study1.direction and study2.direction, then effect estimates are returned accordingly.
 }
 
