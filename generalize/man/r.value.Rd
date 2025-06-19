@@ -11,7 +11,15 @@ The function computes r-values given two vectors of p-values from primary and
   This is a function from Ruth Heller, adapted to compute FWER r-values in addition to FDR r-values. 
 }
 \usage{
-r.value(p1, p2, m, c2 = 0.5, control.measure = "FDR", l00 = 0.8 , variation = c("none","use.m.star","use.t"), tt = NULL, Q= 0.05)
+r.value(p1, 
+        p2, 
+        m, 
+        c2 = 0.5, 
+        control.measure = "FDR", 
+        l00 = 0.8, 
+        variation = c("none","use.m.star","use.t"), 
+        tt = NULL, 
+        Q= 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -54,36 +62,27 @@ r.value(p1, p2, m, c2 = 0.5, control.measure = "FDR", l00 = 0.8 , variation = c(
   The level or false generalization (e.g. control FDR at the q level or FWER at the q level).
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
+
 \author{
 Ruth Heller, Shay Yaacoby (shay66@gmail.com), small adaptation by Tamar Sofer. 
 }
-\note{
-%%  ~~further notes~~
-}
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
 \examples{
 # General example from Ruth Heller's website: 
   pv <- read.csv("http://www.math.tau.ac.il/~ruheller/Software/CrohnExample.csv")
-  rv <- r.value(p1=pv$p1,p2=pv$p2,m=635547,c2=0.5,l00=0.8)
-  rv2 <- r.value(p1=pv$p1,p2=pv$p2,m=635547,c2=0.5,l00=0.8,variation="use.t",tt=1e-5)
+  rv <- r.value(p1=pv$p1,
+                p2=pv$p2,
+                m=635547,
+                c2=0.5,
+                l00=0.8)
+  
+  rv2 <- r.value(p1=pv$p1,
+                p2=pv$p2,
+                m=635547,
+                c2=0.5,
+                l00=0.8,
+                variation="use.t",
+                tt=1e-5)
 
 #### in this package, the function is called by testGenerelization.
 }

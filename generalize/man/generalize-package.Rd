@@ -21,6 +21,7 @@ Code used to perform generalization testing for a set of association from study 
 Maintainer:\packageMaintainer{generalize}
 }
 \examples{
+library(generalize)
 data(dat)
 head(dat)
 ## first match effects on alleles:
@@ -43,20 +44,33 @@ gen.res <- testGeneralization(dat$rsID, dat$study1.pval, dat$study2.pval,
 head(gen.res)
 
 require(ggplot2)
-require(gridExtra)
-require(RColorBrewer)
+
 
 
 ## prepare figure
-prepareGenResFigure(dat$rsID, dat$study1.beta, dat$study1.se, dat$study2.beta, 
-	dat$study2.se, gen.res$generalized, gen.res$gen.rvals, dat$study1.n.test[1], 
-	output.file = paste0(getwd(), "/Generalization_example.pdf"), 
-	study1.name = "Study1", study2.name = "Study2")
+prepareGenResFigure(dat$rsID, 
+                  dat$study1.beta, 
+                  dat$study1.se, 
+                  dat$study2.beta, 
+                  dat$study2.se, 
+                  gen.res$generalized, 
+                  gen.res$gen.rvals, 
+                  dat$study1.n.test[1], 
+                  output.file = paste0(getwd(), "/Generalization_example.pdf"),
+                  study1.name = "Study1", study2.name = "Study2")
 
 ## marking genome-wide significant hits in study 2 with red stars 
 ## (here nothing is genome-wide significant so there will be no difference!)
-prepareGenResFigure(dat$rsID, dat$study1.beta, dat$study1.se, dat$study2.beta, 
-	dat$study2.se, gen.res$generalized, gen.res$gen.rvals, dat$study1.n.test[1], plot.width = 10, 
-	output.file = paste0(getwd(), "/Generalization_example.pdf"), study1.name = "Study1", 
-	study2.name = "Study2", add.stars = 5e-8) 
+prepareGenResFigure(dat$rsID, 
+                    dat$study1.beta,
+                    dat$study1.se, 
+                    dat$study2.beta, 
+                    dat$study2.se, 
+                    gen.res$generalized, 
+                    gen.res$gen.rvals, 
+                    dat$study1.n.test[1], 
+                    plot.width = 10, 
+                    output.file = paste0(getwd(), "/Generalization_example.pdf"), 
+                    study1.name = "Study1", 
+                    study2.name = "Study2", add.stars = 5e-8) 
 }

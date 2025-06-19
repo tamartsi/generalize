@@ -1,8 +1,7 @@
 \name{testGeneralization}
 \alias{testGeneralization}
-Calculate generalization/replication r-values.
 \title{
-Test for generalization of associations from study1 to study2 
+Test for generalization of associations from study1 to study2 by computing r-values.
 }
 \description{
   The function calls another function that computes r-values given two vectors of p-values from primary 
@@ -14,7 +13,7 @@ Test for generalization of associations from study1 to study2
 testGeneralization(snpID, study1.pval, study2.pval, study1.n.test, 
 	study1.effect = NULL,  study2.effect = NULL, directional.control = TRUE, 
 	control.measure = "FDR", q = 0.05, l00 = 0.8, c2 = 0.5, 
-	variation = c("none","use.m.star","use.t"), tt = NULL,  verbose = FALSE)
+	variation = c("none","use.m.star","use.t"), tt = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -73,8 +72,7 @@ testGeneralization(snpID, study1.pval, study2.pval, study1.n.test,
    The selection rule threshold for p-values from the primary study. must be supplied when
    variation 'use.t' is selected.
 }
-  \item{verbose}{
-}
+
 }
 \details{
 Returns a data frame matching each snpID with its computed r-value and generalization status.

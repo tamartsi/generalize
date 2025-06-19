@@ -1,6 +1,5 @@
 \name{prepareGenResFigure}
 \alias{prepareGenResFigure}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Prepare a figure illustrating generalization testing results
 }
@@ -81,7 +80,7 @@ prepareGenResFigure(snpID, study1.beta, study1.se, study2.beta, study2.se,
   An optional numerical value, corrsponding to a p-value threshold. If a SNP from study2 has a two-sided 
    p-value that is smaller than this threshold, than a star is plotted next to the estimated effect of the appropriate SNP.
 }
-  \item{alpha.level.folow}{
+  \item{alpha.level.follow}{
   Significance level for plotting confidence interval. Defult level is 0.05 (plots 95\% confidence intervals)
 }
 
@@ -111,20 +110,30 @@ gen.res <- testGeneralization(dat$rsID, dat$study1.pval, dat$study2.pval,
 
 ## prepare figure
 require(ggplot2)
-require(gridExtra)
-require(RColorBrewer)
 
 ## prepare figure
-prepareGenResFigure(dat$rsID, dat$study1.beta, dat$study1.se, dat$study2.beta, 
-	dat$study2.se, gen.res$generalized, gen.res$gen.rvals, dat$study1.n.test[1], 
-	output.file = paste0(getwd(), "/Generalization_example.pdf"), 
-	study1.name = "Study1", study2.name = "Study2")
+prepareGenResFigure(dat$rsID, 
+                  dat$study1.beta, 
+                  dat$study1.se, 
+                  dat$study2.beta, 
+                	dat$study2.se, 
+                	gen.res$generalized, 
+                	gen.res$gen.rvals, 
+                	dat$study1.n.test[1], 
+                	output.file = paste0(getwd(), "/Generalization_example.pdf"), 
+                	study1.name = "Study1", study2.name = "Study2")
 
 ## marking genome-wide significant hits in study 2 with red stars 
 ## (here nothing is genome-wide significant so there will be no difference!)
-prepareGenResFigure(dat$rsID, dat$study1.beta, dat$study1.se, dat$study2.beta, 
-	dat$study2.se, gen.res$generalized, gen.res$gen.rvals, dat$study1.n.test[1], 
-	output.file = paste0(getwd(), "/Generalization_example.pdf"), 
-	study1.name = "Study1", study2.name = "Study2", add.stars = 5e-8) 
+prepareGenResFigure(dat$rsID, 
+                    dat$study1.beta, 
+                    dat$study1.se, 
+                    dat$study2.beta, 
+                    dat$study2.se, 
+                    gen.res$generalized, 
+                    gen.res$gen.rvals, 
+                    dat$study1.n.test[1], 
+                    output.file = paste0(getwd(), "/Generalization_example.pdf"), 
+                    study1.name = "Study1", study2.name = "Study2", add.stars = 5e-8) 
 
 }

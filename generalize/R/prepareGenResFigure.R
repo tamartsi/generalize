@@ -1,3 +1,15 @@
+
+
+#' @importFrom ggplot2 geom_errorbar geom_point theme theme_bw element_text
+#' @importFrom ggplot2 labs ggsave element_blank scale_color_manual
+#' @importFrom ggplot2 aes ggplot position_dodge aes ggtitle 
+# Declare ggplot2 variables used in aes()
+utils::globalVariables(c("study", "se", "Z", "beta", "snpID"))
+#' @export
+prepareGenResFigure <- function(...) {
+  ...
+}
+
 prepareGenResFigure <-
 function(snpID, study1.beta, study1.se, study2.beta, study2.se,generalized, gen.rvals, study1.n.test, output.file, study1.name = "Study1", study2.name = "Study2", make.title = FALSE, legend.position = c(.9, .9), CI.line.width = 1.7, x.ticks.size = 15, plot.width = 8, plot.height = 8, trait = NULL, plot.title = NULL, add.stars = NULL, alpha.level.follow = 0.05){
 	

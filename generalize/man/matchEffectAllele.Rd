@@ -1,6 +1,5 @@
 \name{matchEffectAllele}
 \alias{matchEffectAllele}
-update directions of effect of study2 to be according to the effect allele in study1
 \title{
 check and update signs of estimated effect sizes in study 2 by matching alleles between study 1 and study 2
 }
@@ -50,7 +49,7 @@ If effect estimates were given in study1.direction and study2.direction, then ef
 \author{
 Tamar Sofer
 }
-other sections like Warning with \section{Warning }{....} ~
+
 \examples{
 data(dat)
 head(dat)

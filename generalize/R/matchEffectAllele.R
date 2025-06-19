@@ -1,3 +1,8 @@
+#' @export
+matchEffectAllele <- function(...) {
+  ...
+}
+
 matchEffectAllele <-
 function(snpID, study2.effect, study1.alleleA, study2.alleleA, study1.alleleB = NULL, study2.alleleB = NULL){
 	stopifnot( length(snpID) == length(study2.effect), length(snpID) == length(study1.alleleA), length(snpID) == length(study2.alleleA))

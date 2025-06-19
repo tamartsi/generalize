@@ -2,7 +2,7 @@
 \alias{dat}
 \docType{data}
 \title{
-A data set of previouly published SNP-platelet count associations in Gieger et al., 2011, and association results for the same SNPs in the HCHS/SOL. 
+A data set of previously published SNP-platelet count associations in Gieger et al., 2011, and association results for the same SNPs in the HCHS/SOL. 
 }
 \description{
 A data set with SNP associations reported for platelet counts, in study1 being Geiger et al., 2011, 

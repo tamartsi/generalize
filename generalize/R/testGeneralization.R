@@ -1,5 +1,10 @@
+#' @export
+testGeneralization <- function(...) {
+  ...
+}
+
 testGeneralization <-
-function(snpID,  study1.pval, study2.pval, study1.n.test, study1.effect = NULL,  study2.effect = NULL, directional.control = TRUE, control.measure = "FDR", q = 0.05, l00 = 0.8, c2 = 0.5, variation = c("none","use.m.star","use.t"), tt = NULL,  verbose = FALSE ){
+function(snpID,  study1.pval, study2.pval, study1.n.test, study1.effect = NULL,  study2.effect = NULL, directional.control = TRUE, control.measure = "FDR", q = 0.05, l00 = 0.8, c2 = 0.5, variation = c("none","use.m.star","use.t"), tt = NULL){
 	
 	stopifnot(length(snpID) == length(study1.pval),  length(snpID) == length(study2.pval), length(snpID) < study1.n.test, l00>=0, l00 < 1, is.element(control.measure, c("FDR", "FWER")))
 	
